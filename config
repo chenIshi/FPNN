@@ -1,0 +1,37 @@
+#!/bin/bash
+CONFIG_OUT_LOCAT="./config_log"
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -nf|--numerical-format)
+    NUM_FORMAT="$2"
+    shift # past signal argument
+    shift # past corresponding value
+    ;;
+    -d|--default)
+    DEFAULT=YES
+    shift # past signal argument
+    ;;
+    *) # unknown option
+    POSITIONAL+=($1)
+    shift # past unknown argument
+    ;;
+esac
+done
+
+if [ -f ${CONFIG_OUT_LOCAT} ]; then
+    rm ${CONFIG_OUT_LOCAT}
+fi
+
+set -- "${POSTITIONAL[@]}" # restore position
+echo NUM_FORMAT = "${NUM_FORMAT}" >> ${CONFIG_OUT_LOCAT}
+echo DEFAULT = "${DEFAULT}"
+
+if [[ -n $1 ]]; then
+    echo "Last Line of File Specified as Non-opt/Last Argument:"
+    tail -1 $1
+fi
