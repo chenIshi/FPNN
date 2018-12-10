@@ -15,7 +15,11 @@ enum NUM_TYPE {
 
 /* mostly for variable types of weights */
 typedef struct _num_t {
-    enum NUM_TYPE;
+    enum NUM_TYPE num_type;
     void *(*num_handler)();
 } num_t;
+
+#define STD_FLOAT32_LENGTH 4
+#define FIXED_POINT32_LENGTH 4
+#define UNSIGNED32_LENGTH 4
 
