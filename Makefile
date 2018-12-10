@@ -1,4 +1,6 @@
 CONFIG_FILE=config_log
+CC=gcc
+INCLUDE_PATH=./include
 
 ALL : 
 # check if not configured yet
@@ -7,3 +9,6 @@ ifeq (,$(wildcard $(CONFIG_FILE)))
 else
 	@echo "Makefile success."
 endif
+
+% :　%.c
+	$(CC) %< -o %@ -I $(INCLUDE_PATH)
