@@ -22,6 +22,7 @@ typedef struct _num_t {
 #define STD_FLOAT32_LENGTH 4
 #define FIXED_POINT32_LENGTH 4
 #define UNSIGNED32_LENGTH 4
+#define FIXED_POINT32_OFFSET 16
 
 #define size_t long
 
