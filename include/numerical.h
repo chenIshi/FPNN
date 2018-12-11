@@ -23,3 +23,5 @@ typedef struct _num_t {
 #define FIXED_POINT32_LENGTH 4
 #define UNSIGNED32_LENGTH 4
 
+#define size_t long
+
