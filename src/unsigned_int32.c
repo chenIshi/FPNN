@@ -31,7 +31,16 @@ size_t unsigned_int32_mul( void * unsigned32_a, size_t unsigned32_a_size, void *
     }
     unsigned a = *(unsigned *)unsigned32_a;
     unsigned b = *(unsigned *)unsigned32_b;
-    float ret = a + b;
+    float ret;
+    /* get both exponential and mantissa */
+    unsigned exp_a = (a >> 23) & 0x000000FF;
+    unsigned exp_b = (b >> 23) & 0x000000FF;
+    unsigned mant_a = a & 0x007FFFFF;
+    unsigned mant_b = b & 0x007FFFFF;
+    /* get difference of both exponential */
+    /* right shift mantissa with the smaller exponential */
+    /* add the shifted one and the other one */
+    /* get overflow and  */
     *unsigned32_ret = (void *)&ret;
     *ret_size = UNSIGNED32_LENGTH;
     return 0;
