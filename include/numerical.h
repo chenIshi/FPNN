@@ -15,7 +15,8 @@
 #define UNSIGNED32_LENGTH 4
 #define FIXED_POINT32_OFFSET 16
 
-enum NUM_TYPE {
+enum NUM_TYPE
+{
     STANDARD_FLOAT32,
     FIX_POINT32,
     UNSIGNED_INT32
@@ -24,7 +25,8 @@ enum NUM_TYPE {
 /* mostly for variable types of weights */
 #define num_t void *
 
-typedef struct _num_op {
+typedef struct _num_op
+{
     /* "add" implementation in specific target format of number */
     size_t (*adder_handler)();
     /* "multiple" implementation in specific target format of number */
@@ -32,6 +34,3 @@ typedef struct _num_op {
     /* cast from float to target format of number */
     size_t (*float2num)();
 } num_op;
-
-
-
