@@ -7,6 +7,14 @@
    2018.12.10 Chen YI-XI at Cheng Kung University */
 
 /* Different test group subject */
+
+#define size_t long
+
+#define STD_FLOAT32_LENGTH 4
+#define FIXED_POINT32_LENGTH 4
+#define UNSIGNED32_LENGTH 4
+#define FIXED_POINT32_OFFSET 16
+
 enum NUM_TYPE {
     STANDARD_FLOAT32,
     FIX_POINT32,
@@ -14,15 +22,16 @@ enum NUM_TYPE {
 };
 
 /* mostly for variable types of weights */
-typedef struct _num_t {
-    enum NUM_TYPE num_type;
-    void *(*num_handler)();
-} num_t;
+#define num_t void *
 
-#define STD_FLOAT32_LENGTH 4
-#define FIXED_POINT32_LENGTH 4
-#define UNSIGNED32_LENGTH 4
-#define FIXED_POINT32_OFFSET 16
+typedef struct _num_op {
+    /* "add" implementation in specific target format of number */
+    size_t (*adder_handler)();
+    /* "multiple" implementation in specific target format of number */
+    size_t (*multi_handler)();
+    /* cast from float to target format of number */
+    size_t (*float2num)();
+} num_op;
 
-#define size_t long
+
 
