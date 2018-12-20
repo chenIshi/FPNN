@@ -1,11 +1,10 @@
-#include "../src/activation_function.h"
+#include "activation_function.h"
 
-#define numtype float
-#include "../src/activation_function_template.h"
+#define NUMTYPE float
+#include "activation_function_template.h"
 
-#define numtype unsigned
-#include "../src/activation_function_template.h"
+#define NUMTYPE fixed
+#include "activation_function_template.h"
 
 int main() {
-    printf("Hi");
 }
