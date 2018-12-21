@@ -5,6 +5,3 @@
 
 #define NUMTYPE fixed
 #include "activation_function_template.c"
-
-int main() {
-}

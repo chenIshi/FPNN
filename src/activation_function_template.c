@@ -23,7 +23,6 @@ size_t activation_function(void *input, void *output, void *(*func_ptr)(void *, 
 }
 
 
-
 void *relu(void *input, void *output)
 {
     if ((*(DATA_TYPE *)input) < 0)
