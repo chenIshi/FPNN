@@ -1,3 +1,11 @@
+#ifndef ACTIVATION_FUNCTION_H
+#include "activation_function.h"
+#endif
+
+#ifndef NUMTYPE
+#define NUMTYPE float
+#endif
+
 #if NUMTYPE == float
 #define DATA_TYPE float
 #elif NUMTYPE == fixed
